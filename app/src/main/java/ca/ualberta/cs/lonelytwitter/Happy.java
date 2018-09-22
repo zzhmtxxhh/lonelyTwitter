@@ -1,9 +1,8 @@
 package ca.ualberta.cs.lonelytwitter;
 
-public class Happy extends Mood {
-
-
-    public String mood_type() {
+public class happy extends Mood {
+    @Override
+    public String mood_msn() {
         return "I'm Happy";
     }
 }

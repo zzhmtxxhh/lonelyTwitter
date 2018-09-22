@@ -1,8 +1,9 @@
 package ca.ualberta.cs.lonelytwitter;
 
-public class Angry extends Mood {
+public class angry extends Mood {
 
-    public String mood_type() {
-        return "I'm angry";
+    @Override
+    public String mood_msn() {
+        return "I'm angry" ;
     }
 }

@@ -4,25 +4,22 @@ import java.util.Date;
 
 public abstract class Mood {
 
-    protected Date date;
+    private Date timestamp;
 
-    public Mood(Date date){
-        this.date = date;
+    public Mood (Date timestamp){
+        this.timestamp = timestamp;
     }
 
     public Mood(){
-        this.date = new Date();
-
+        this.timestamp = new Date();
     }
 
-    public Date getDate() {
-        return date;
+    public Date getTimestamp() {
+        return timestamp;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
-
-    public abstract String mood_type();
-
+    public abstract String mood_msn();
 }

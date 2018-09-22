@@ -21,6 +21,7 @@ import java.util.Date;
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";
+//	they cannot be copied they serve as a reference
 	private EditText bodyText;
 	private ListView oldTweetsList;
 	
@@ -37,6 +38,21 @@ public class LonelyTwitterActivity extends Activity {
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
+				
+
+//				polymorphism down cast angry and happy calss into Mood class
+				Mood angry = new angry();
+				Mood happy = new happy();
+				Mood angry_2 = new angry();
+				ArrayList<Mood> Moods = new ArrayList<Mood>();
+				Moods.add(angry);
+				Moods.add(happy);
+				String ms = "Normal tweet with list of mood object";
+				Normal_tweet normal_tweet = new Normal_tweet(ms, Moods);
+				normal_tweet.add_mood(angry_2);
+
+
+
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
 				saveInFile(text, new Date(System.currentTimeMillis()));
@@ -50,6 +66,7 @@ public class LonelyTwitterActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onStart();
 		String[] tweets = loadFromFile();
+//		Arrary adpater
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				R.layout.list_item, tweets);
 		oldTweetsList.setAdapter(adapter);
@@ -59,6 +76,7 @@ public class LonelyTwitterActivity extends Activity {
 		ArrayList<String> tweets = new ArrayList<String>();
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
+
 			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
 			String line = in.readLine();
 			while (line != null) {
